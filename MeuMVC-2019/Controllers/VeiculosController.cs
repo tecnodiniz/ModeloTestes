@@ -30,6 +30,7 @@ namespace MeuMVC_2019.Controllers
         public void Salvar()
         {
             var veiculo = new Veiculos();
+       
             veiculo.Id = Convert.ToInt32("0" + Request["id"]);
             veiculo.Nome = Request["nome"];
             veiculo.Modelo = Request["modelo"];
