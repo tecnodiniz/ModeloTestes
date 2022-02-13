@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Relação de Carros";
+
+}
+<script>
+    var ValidaExclusao = function (id, evento) {
+
+        
+
+        if (confirm("Confirmar exclusão?")) {
+
+            location.href = "/Veiculos/" + id + "/Excluir";
+        }
+        evento.preventDefault();
+    }
+</script>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <h1>Relação de Veículos</h1>
+           <a class="btn btn-primary" role="button" href="/Veiculos/Adicionar">Adicionar</a>
+
+           
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Fabricação</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Combutível</th>
+                        <th scope="col">Automático</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Ativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        @foreach (var item in ViewBag.Lista)
+                        {
+
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Nome </td>
+                        <td>@item.Modelo</td>
+                        <td>@item.Ano</td>
+                        <td>@item.Fabricacao</td>
+                        <td>@item.Cor</td>
+                        <td>@item.Combustivel</td>
+                        <td>@item.Automatico</td>
+                        <td>R$@item.Valor</td>
+                        <td>@item.Ativo</td>
+                        <td>
+                            <a role="button" href="/Veiculos/Alterar/@item.Id" class="btn btn-primary">Alterar</a>
+
+                        </td>
+                        <td>
+                            <a role="button"  onclick="ValidaExclusao(@item.Id);" class="btn btn-primary">Excluir</a>
+
+                        </td>
+
+
+
+                    </tr>
+                        }
+
+                    
+                   
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</main>
+

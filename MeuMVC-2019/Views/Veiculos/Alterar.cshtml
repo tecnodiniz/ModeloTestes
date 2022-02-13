@@ -1,0 +1,66 @@
+﻿@{ 
+    var veiculo = ViewBag.veiculo;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Alterar Veículo</h3>
+            <form action="/veiculos/salvar" method="post">
+                <div class="mb-3">
+                   
+                    <input type="hidden" class="form-control" id="id" name="id" value="@veiculo.Id" >
+                </div>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" value="@veiculo.Nome">
+                </div>
+
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo" name="modelo" value="@veiculo.Modelo">
+                </div>
+
+                <div class="mb-3">
+                    <label for="fabricacao" class="form-label">Fabricação</label>
+                    <input type="text" class="form-control" id="fabricacao" name="fabricacao" value="@veiculo.Fabricacao">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cor" class="form-label">Cor</label>
+                    <input type="text" class="form-control" id="cor" name="cor" value="@veiculo.Cor">
+                </div>
+
+
+
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example" id="combustivel" name="combustivel">
+                        <option selected>@veiculo.Combustivel</option>
+                        <option value="1">Gasolina</option>
+                        <option value="2">Álcoll</option>
+                        <option value="3">Flex</option>
+                        <option value="4">Diesel</option>
+                        <option value="5">Gás</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="valor" class="form-label">Valor</label>
+                    <input type="text" class="form-control" id="valor" name="valor" value="@veiculo.Valor">
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Salvar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
